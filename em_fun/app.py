@@ -118,21 +118,12 @@ else:
         "E": ["Belgium", "Slovakia", "Romania", "Ukraine"],
         "F": ["Turkey", "Georgia", "Portugal", "Czech Republic"]
         }
-
-        # champion, vice champion, third place, fourth place
-        all_teams = [
-            "Germany", "Scotland", "Hungary", "Switzerland",
-            "Spain", "Croatia", "Italy", "Albania",
-            "Slovenia", "Denmark", "Serbia", "England",
-            "Poland", "Netherlands", "Austria", "France",
-            "Belgium", "Slovakia", "Romania", "Ukraine",
-            "Turkey", "Georgia", "Portugal", "Czech Republic"
-        ]
+        
         champion_dict = {
-            "champion": all_teams,
-            "vice_champion": all_teams,
-            "third_place": all_teams,
-            "fourth_place": all_teams
+            "champion": ["Germany", "Scotland", "Hungary", "Switzerland", "Spain", "Croatia", "Italy", "Albania", "Slovenia", "Denmark", "Serbia", "England", "Poland", "Netherlands", "Austria", "France", "Belgium", "Slovakia", "Romania", "Ukraine", "Turkey", "Georgia", "Portugal", "Czech Republic"],
+            "vice_champion": ["Germany", "Scotland", "Hungary", "Switzerland", "Spain", "Croatia", "Italy", "Albania", "Slovenia", "Denmark", "Serbia", "England", "Poland", "Netherlands", "Austria", "France", "Belgium", "Slovakia", "Romania", "Ukraine", "Turkey", "Georgia", "Portugal", "Czech Republic"],
+            "third_place": ["Germany", "Scotland", "Hungary", "Switzerland", "Spain", "Croatia", "Italy", "Albania", "Slovenia", "Denmark", "Serbia", "England", "Poland", "Netherlands", "Austria", "France", "Belgium", "Slovakia", "Romania", "Ukraine", "Turkey", "Georgia", "Portugal", "Czech Republic"],
+            "fourth_place": ["Germany", "Scotland", "Hungary", "Switzerland", "Spain", "Croatia", "Italy", "Albania", "Slovenia", "Denmark", "Serbia", "England", "Poland", "Netherlands", "Austria", "France", "Belgium", "Slovakia", "Romania", "Ukraine", "Turkey", "Georgia", "Portugal", "Czech Republic"]
         }
 
         group_positions = {}
