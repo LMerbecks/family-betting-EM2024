@@ -63,15 +63,28 @@ def init_db():
 
 # Function to check user credentials
 def check_credentials(username, password):
-    conn = sqlite3.connect('users.db')
-    c = conn.cursor()
-    c.execute('SELECT * FROM users WHERE username=? AND password=?', (username, password))
-    result = c.fetchone()
-    conn.close()
-    return result
+    available_users = [
+    {'username': 'Lele', 'password': 'lele_123'},
+    {'username': 'Augi', 'password': 'augi_123'},
+    {'username': 'Consi', 'password': 'consi_123'},
+    {'username': 'Mama', 'password': 'mama_123'},
+    {'username': 'Papa', 'password': 'papa_123'},
+    {'username': 'Oma', 'password': 'oma_123'},
+    {'username': 'Jutta', 'password': 'jutta_123'},
+    {'username': 'Peter', 'password': 'peter_123'},
+    {'username': 'admin', 'password': 'admin_123'},
+    ]
+    # Check if the username exists
+    for user in available_users:
+        if user['username'] == username:
+            if user['password'] == password:
+                return True
+            else :
+                return False
+    return False
 
 # Initialize the database
-init_db()
+# init_db()
 init_votes_db()
 
 # Streamlit app
@@ -109,21 +122,21 @@ else:
             st.write("No votes have been submitted yet.")
     else:
         st.header('Vote for Group Positions')
-        # Group A-F 1.2. place
         group_dict = {
-        "A": ["Germany", "Scotland", "Hungary", "Switzerland"],
-        "B": ["Spain", "Croatia", "Italy", "Albania"],
-        "C": ["Slovenia", "Denmark", "Serbia", "England"],
-        "D": ["Poland", "Netherlands", "Austria", "France"],
-        "E": ["Belgium", "Slovakia", "Romania", "Ukraine"],
-        "F": ["Turkey", "Georgia", "Portugal", "Czech Republic"]
+            'A': ['Turkey', 'Italy', 'Wales', 'Switzerland'],
+            'B': ['Denmark', 'Finland', 'Belgium', 'Russia'],
+            'C': ['Netherlands', 'Ukraine', 'Austria', 'North Macedonia'],
+            'D': ['England', 'Croatia', 'Scotland', 'Czech Republic'],
+            'E': ['Spain', 'Sweden', 'Poland', 'Slovakia'],
+            'F': ['Hungary', 'Portugal', 'France', 'Germany']
         }
-        
+
+        # champion, vice champion, third place, fourth place
         champion_dict = {
-            "champion": ["Germany", "Scotland", "Hungary", "Switzerland", "Spain", "Croatia", "Italy", "Albania", "Slovenia", "Denmark", "Serbia", "England", "Poland", "Netherlands", "Austria", "France", "Belgium", "Slovakia", "Romania", "Ukraine", "Turkey", "Georgia", "Portugal", "Czech Republic"],
-            "vice_champion": ["Germany", "Scotland", "Hungary", "Switzerland", "Spain", "Croatia", "Italy", "Albania", "Slovenia", "Denmark", "Serbia", "England", "Poland", "Netherlands", "Austria", "France", "Belgium", "Slovakia", "Romania", "Ukraine", "Turkey", "Georgia", "Portugal", "Czech Republic"],
-            "third_place": ["Germany", "Scotland", "Hungary", "Switzerland", "Spain", "Croatia", "Italy", "Albania", "Slovenia", "Denmark", "Serbia", "England", "Poland", "Netherlands", "Austria", "France", "Belgium", "Slovakia", "Romania", "Ukraine", "Turkey", "Georgia", "Portugal", "Czech Republic"],
-            "fourth_place": ["Germany", "Scotland", "Hungary", "Switzerland", "Spain", "Croatia", "Italy", "Albania", "Slovenia", "Denmark", "Serbia", "England", "Poland", "Netherlands", "Austria", "France", "Belgium", "Slovakia", "Romania", "Ukraine", "Turkey", "Georgia", "Portugal", "Czech Republic"]
+            "champion": ["Turkey", "Italy", "Netherlands", "England", "Spain", "Hungary"],
+            "vice_champion": ["Italy", "Turkey", "Ukraine", "Croatia", "Sweden", "Portugal"],
+            "third_place": ["Switzerland", "Wales", "Austria", "Scotland", "Poland", "France"],
+            "fourth_place": ["Wales", "Switzerland", "North Macedonia", "Czech Republic", "Slovakia", "Germany"]
         }
 
         group_positions = {}
