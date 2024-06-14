@@ -1,16 +1,19 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import os
+current_directory = os.getcwd()
 
 # Streamlit app
 st.title('EM 2024 Tippspiel')
+# file_path = 
 
 
-groups = pd.read_parquet("group_votes.parquet")
+groups = pd.read_parquet(os.path.join(current_directory, "group_votes.parquet"))
 groups.columns = groups.columns.get_level_values(1)
 groups["Punkte"] = 2
 
-ranks = pd.read_parquet("overall_votes.parquet")
+ranks = pd.read_parquet(os.path.join(current_directory, "overall_votes.parquet"))
 
 st.markdown("## Gruppen-Tipps")
 st.table(groups) 
